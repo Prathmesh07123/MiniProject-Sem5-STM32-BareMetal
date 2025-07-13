@@ -31,7 +31,7 @@ Build an embedded system application using STM32L4P5ZG board without using HAL d
 All weekly progress, tasks, research logs, and planning are documented in Notion for better visualization and team tracking.
 
 👉 **Notion Template Link:**  
-[📘 View Project Notion Documentation](https://www.notion.so/your-notion-link-here)
+[📘 View Project Notion Documentation]([https://www.notion.so/your-notion-link-here](https://www.notion.so/Mini-Project-Weekly-Log-Embedded-Systems-22fd5e68aa1780f4bacfd44b15a03610?source=copy_link))
 
 ---
 
