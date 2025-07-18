@@ -25,7 +25,7 @@ Semester 5 Embedded Systems Mini Project using STM32L4P5ZG (Bare-Metal Programmi
 
 | Week | Date         | Summary                                             | Notes Folder     |
 |------|--------------|-----------------------------------------------------|------------------|
-| 1    | 11–12 July   | Board selection, IDE setup, LED toggle (bare-metal) | [Week1](./Week-1) |
+| 1    | 11–12 July   | Board selection, IDE setup, LED toggle (bare-metal) | [Week1](./Week%201) |
 | 2    | Coming Soon  | Problem statement finalization, button interface    | -                |
 
 ---
