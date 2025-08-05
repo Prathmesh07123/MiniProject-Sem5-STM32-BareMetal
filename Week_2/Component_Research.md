@@ -64,7 +64,7 @@ This document summarizes research done on the hardware modules selected for Seme
 
 ---
 
-### 📡 ESP8266 Wi-Fi Module
+### 5️⃣ ESP8266 Wi-Fi Module
 
 - **Purpose:** Enables cloud communication from the STM32 receiver to **ThingSpeak**
 - **Interface:** SPI (via AT commands with STM32L4P5ZG)
@@ -79,11 +79,20 @@ This document summarizes research done on the hardware modules selected for Seme
 
 ## ⚙️ Optional Components 
 
-### ❤️ Pulse Sensor (MAX30102 Heart Rate and Pulse Oximeter Sensor Module)
+---
 
-- **Purpose:** Monitor cow heart rate
-- **Challenges:** Requires signal amplification and ADC tuning
-- **Status:** Optional – Depends on signal quality during field tests
+## ❤️ Pulse Sensor – MAX30102
+
+- **Purpose:** Measures cow’s heart rate using optical sensing
+- **Interface:** I²C  
+- **Operating Voltage:** 1.8V (core), 3.3V (I/O)
+- **Use in Project:**  
+  - Helps monitor animal health during birthing or stress
+- **Challenges:**    
+  - Requires filtering and signal tuning
+- **Status:** Optional – Will be tested for reliability in field conditions
+- **Datasheet:** [MAX30102 PDF](https://datasheets.maximintegrated.com/en/ds/MAX30102.pdf)
+
 
 ---
 
