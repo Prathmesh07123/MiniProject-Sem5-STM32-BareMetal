@@ -13,7 +13,7 @@ This document summarizes research done on the hardware modules selected for Seme
 - **Accuracy:** ~2.5m CEP
 - **Reason for Selection:**
   - Easily available
-  - Compatible with STM32 UART
+  - Compatible with STM32F103RB UART
   - Low power and rural-ready
 - **Datasheet:** [u-blox NEO-6M PDF](https://www.u-blox.com/sites/default/files/NEO-6_DataSheet_%28GPS.G6-HW-09005%29.pdf)
 
