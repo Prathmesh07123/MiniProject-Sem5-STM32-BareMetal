@@ -22,13 +22,13 @@ This document summarizes research done on the hardware modules selected for Seme
 ## 2️⃣ IMU Sensor – MPU6050
 
 - **Purpose:** Detect motion, sudden falls, and abnormal movements
-- **Interface:** I2C
+- **Interface:** SPI
 - **Operating Voltage:** 3.3V
 - **Features:**
   - 3-axis accelerometer + 3-axis gyroscope
   - Digital Motion Processor (DMP)
 - **Reason for Selection:**
-  - Stable I2C protocol
+  - Stable I2C/SPI protocol
   - Available libraries and example code
   - Can detect falls and orientation change
 - **Datasheet:** [MPU6050 Register Map](https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Register-Map1.pdf)
@@ -38,7 +38,7 @@ This document summarizes research done on the hardware modules selected for Seme
 ## 3️⃣ LoRa Module – SX1278 (Ra-02)
 
 - **Purpose:** Long-range communication between wearable node and base station (no internet required)
-- **Interface:** UART or SPI (we prefer UART for ease)
+- **Interface:** UART or SPI (we prefer SPI for fast communication)
 - **Frequency:** 433 MHz
 - **Range:** Up to 5–10 km in open field (ideal for rural farms)
 - **Operating Voltage:** 3.3V (⚠️ Use logic level converter if needed)
@@ -57,19 +57,20 @@ This document summarizes research done on the hardware modules selected for Seme
 - **Operating Voltage:** 3.3V – 5V
 - **Accuracy:** ±2°C, Range: 0–50°C
 - **Reason for Selection:**
-  - Simple to interface
+  - Simple to interface/Required precise delay
   - Adequate for animal surface temp
   - Supported with timing-based read code (bare-metal)
 - **Datasheet:** [DHT11 PDF](https://www.electronicwings.com/public/images/user_images/images/dht11.pdf)
 
 ---
 
-## ⚙️ Optional Components (Future Work)
+### 🔄 ESP8266
 
-### 🔄 ESP8266 / ESP32
+- **Purpose:** Wi-Fi communication for cloud updates (Sem 5)
 
-- **Purpose:** Wi-Fi communication for cloud updates (Sem 6)
-- **Status:** Planned for later integration
+---
+
+## ⚙️ Optional Components 
 
 ### ❤️ Pulse Sensor (KY-039 or Pulse Sensor Amped)
 
