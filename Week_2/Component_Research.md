@@ -72,7 +72,7 @@ This document summarizes research done on the hardware modules selected for Seme
 
 ## ⚙️ Optional Components 
 
-### ❤️ Pulse Sensor (KY-039 or Pulse Sensor Amped)
+### ❤️ Pulse Sensor (MAX30102 Heart Rate and Pulse Oximeter Sensor Module)
 
 - **Purpose:** Monitor cow heart rate
 - **Challenges:** Requires signal amplification and ADC tuning
