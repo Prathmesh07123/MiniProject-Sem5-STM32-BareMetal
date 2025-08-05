@@ -64,10 +64,17 @@ This document summarizes research done on the hardware modules selected for Seme
 
 ---
 
-### 🔄 ESP8266
+### 📡 ESP8266 Wi-Fi Module
 
-- **Purpose:** Wi-Fi communication for cloud updates (Sem 5)
-
+- **Purpose:** Enables cloud communication from the STM32 receiver to **ThingSpeak**
+- **Interface:** SPI (via AT commands with STM32L4P5ZG)
+- **Operating Voltage:** 3.0V – 3.6V  
+- **Wi-Fi Standard:** 802.11 b/g/n  
+- **Use in Project:**  
+  - Mounted on the **receiver side**
+  - Transfers sensor data (received via LoRa) to **ThingSpeak Cloud**
+  - Communicates using **AT commands** over SPI
+- **Datasheet:** [ESP8266 AT Command Set (PDF)](https://www.espressif.com/sites/default/files/documentation/4a-esp8266_at_instruction_set_en.pdf)
 ---
 
 ## ⚙️ Optional Components 
