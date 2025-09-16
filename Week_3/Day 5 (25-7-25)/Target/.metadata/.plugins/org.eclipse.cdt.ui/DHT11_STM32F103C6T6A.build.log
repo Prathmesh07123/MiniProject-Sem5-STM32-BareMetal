@@ -1,0 +1,20 @@
+12:47:16 **** Incremental Build of configuration Debug for project DHT11_STM32F103C6T6A ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32F103x6 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M3/Nucleo-f103rb/en.stm32cubef1/STM32Cube_FW_F1_V1.8.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M3/Nucleo-f103rb/en.stm32cubef1/STM32Cube_FW_F1_V1.8.0/Drivers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "DHT11_STM32F103C6T6A.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\prath\OneDrive\Desktop\MINI PROJECT\Sem 5 Project\Week_3\Day 5 (25-7-25)\Target\DHT11_STM32F103C6T6A\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DHT11_STM32F103C6T6A.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: DHT11_STM32F103C6T6A.elf
+ 
+arm-none-eabi-size  DHT11_STM32F103C6T6A.elf 
+arm-none-eabi-objdump -h -S DHT11_STM32F103C6T6A.elf  > "DHT11_STM32F103C6T6A.list"
+   text	   data	    bss	    dec	    hex	filename
+   6368	    120	   1912	   8400	   20d0	DHT11_STM32F103C6T6A.elf
+arm-none-eabi-objcopy  -O ihex DHT11_STM32F103C6T6A.elf  "DHT11_STM32F103C6T6A.hex"
+Finished building: default.size.stdout
+ 
+Finished building: DHT11_STM32F103C6T6A.hex
+Finished building: DHT11_STM32F103C6T6A.list
+ 
+ 
+
+12:47:20 Build Finished. 0 errors, 0 warnings. (took 4s.141ms)
+

@@ -1,0 +1,16 @@
+../Src/main.c:33:6:clock_init	4	static
+../Src/main.c:65:6:TIM2_init_us	4	static
+../Src/main.c:75:6:delay_us	16	static
+../Src/main.c:80:6:Delay_ms	24	static
+../Src/main.c:86:6:USART3_Init	4	static
+../Src/main.c:111:6:USART3_Write	16	static
+../Src/main.c:117:6:USART3_Read	4	static
+../Src/main.c:122:5:__io_putchar	16	static
+../Src/main.c:128:6:integer_to_ascii	16	static
+../Src/main.c:139:6:Basic_Commands	8	static
+../Src/main.c:149:6:Wifi_Conn_Commands	8	static
+../Src/main.c:160:6:Wifi_acc	8	static
+../Src/main.c:167:6:Thing_Speak_Command_Start	8	static
+../Src/main.c:174:6:Data_Commands	8	static
+../Src/main.c:195:6:Init_ESP8266	8	static
+../Src/main.c:202:5:main	16	static

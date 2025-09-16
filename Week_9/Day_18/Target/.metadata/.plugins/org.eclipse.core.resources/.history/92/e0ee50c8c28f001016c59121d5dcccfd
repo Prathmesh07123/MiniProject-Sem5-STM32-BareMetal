@@ -1,0 +1,242 @@
+
+#include <stdio.h>
+#include <string.h>
+#include <stdint.h>
+#include <stm32l4xx.h>
+
+unsigned char command_basic_1[5]="AT\r\n"; // BASIC
+unsigned char command_basic_2[9]="AT+RST\r\n";//BASIC
+unsigned char command_ESP_1[14]="AT+CWMODE=1\r\n";//WIFI
+unsigned char command_ESP_2[14]="AT+CWQAP\r\n";//WIFI
+unsigned char command_ESP_4[25]="AT+CWDHCP=1,1\r\n";//THINGS SPEAK
+unsigned char command_ESP_3[50]="AT+CWJAP=\"IOTTEST\",\"pendrive1\"\r\n"; // WIFI ACC-
+unsigned char command_ESP_5[64]="AT+CIPSTART=\"TCP\",\"https://thingspeak.mathworks.com/\",80\r\n";
+unsigned char command_ESP_6[20]="AT+CIPSEND=64\r\n";
+unsigned char command_ESP_7[64]="GET /update?api_key=OQIV88NF2WMLZ2DK&field1=";
+unsigned char command_ESP_8[9]="&field2=";
+unsigned char command_ESP_9[9]="\r\n\r\n";
+unsigned char command_ESP_10[20]="AT+CIPCLOSE\r\n";
+unsigned char data_string[8];
+
+void clock_init(void);
+void TIM2_init_us(void);
+void USART1_Init(void);
+void USART1_Write(char data);
+char USART2_Read();
+void integer_to_ascii(unsigned int Val, unsigned char *str);
+void Basic_Commands(void);
+void Wifi_Conn_Commands(void);
+void Wifi_acc(void);
+void Thing_Speak_Command_Start(void);
+void Init_ESP8266(void);
+
+void clock_init(void){
+
+	RCC->CR |= (1 << 8);
+
+	while(!(RCC->CR & (1 << 10)));
+
+	FLASH->ACR |= (3 << 0);
+	FLASH->ACR |= (1 << 8);
+	FLASH->ACR |= (1 << 9);
+	FLASH->ACR |= (1 << 10);
+
+
+	RCC->PLLCFGR = 0;
+	RCC->PLLCFGR |= (0b10 << 0);
+	RCC->PLLCFGR |= (0x1 << 4);
+	RCC->PLLCFGR |= (36 << 8);
+	RCC->PLLCFGR |= (0b00 << 25);
+	RCC->PLLCFGR |= (1 << 24);
+
+	RCC->CR |= (1 << 24);
+	while(!(RCC->CR & (1 << 25)));
+
+	RCC->CFGR &= ~(0b11 << 0);
+	RCC->CFGR |= (0b11 << 0);
+	while((RCC->CFGR & (0b11 << 2)) != (0b11 << 2));
+
+	RCC->CFGR &= ~(0xF << 4);
+	RCC->CFGR &= ~(0b111 << 8);
+	RCC->CFGR &= ~(0b111 << 11);
+
+}
+
+void TIM2_init_us(void){
+
+	RCC->APB1ENR1 |= (1 << 0);
+
+	TIM2->PSC = 71;
+	TIM2->ARR = 0xFFFF;
+	TIM2->CNT = 0;
+	TIM2->CR1 = (1 << 0);
+}
+
+void delay_us(uint32_t us){
+	TIM2->CNT = 0;
+	while(TIM2->CNT < us);
+}
+
+void Delay_ms(uint32_t ms){
+	for(uint32_t i = 0; i < ms; i++){
+		delay_us(1000);
+	}
+}
+
+void USART1_Init(void){
+
+	RCC->AHB2ENR |= (1 << 0);	//GPIOA
+	RCC->APB2ENR |= (1 << 14);	//USART1
+
+	//Alternate Function PA9 and PA10 (AF7)
+	GPIOA->MODER &= ~(0xF << 18);
+	GPIOA->MODER |= (0x10 << 18);
+
+	GPIOA->AFR[1] &= ~(0xFF << 4);
+	GPIOA->AFR[1] |= (0x77 << 4);
+
+	GPIOA->OSPEEDR &= ~(0xF << 18);
+	GPIOA->OSPEEDR |= (0xF << 18);
+
+	//Config USART1
+	USART1->CR1 = 0;
+	USART1->CR1 |= (0b11 << 2);
+
+	USART1->BRR = 72000000/115200;
+
+	USART1->CR1 |= (1 << 0);
+
+}
+
+void USART1_Write(char data){
+	while(!(USART1->ISR & (1 << 7)));
+	USART1->TDR = (data & 0xFF);
+
+}
+
+char USART2_Read(){
+	while(!(USART1->ISR & (1 << 5)));
+	return (char)(USART1->RDR & 0xFF);
+}
+
+int __io_putchar(char ch){
+
+	USART1_Write(ch);
+	return ch;
+}
+
+void integer_to_ascii(unsigned int Val, unsigned char *str)
+{
+    str[0] = Val/1000 + 0x30;
+    Val    = Val%1000;
+	str[1] = Val/100 + 0x30;
+	Val    = Val%100;
+	str[2] = Val/10 + 0x30;
+	str[3] = Val%10 + 0x30;
+	str[4] = '\0';
+}
+
+void Basic_Commands(void)
+{
+    //"AT\r\n"; // BASIC
+	printf("%s",command_basic_1);
+	Delay_ms(500);
+	//"AT+RST\r\n";//BASIC
+	printf("%s",command_basic_2);
+	Delay_ms(1000);
+}
+
+void Wifi_Conn_Commands(void)
+{
+	//"AT+CWMODE=1\r\n";//WIFI
+	printf("%s",command_ESP_1);
+	Delay_ms(500);
+	//"AT+CWQAP\r\n";//WIFI
+	printf("%s",command_ESP_2);
+	Delay_ms(500);
+
+}
+
+void Wifi_acc(void)
+{
+   //"AT+CWJAP=; // WIFI ACC;
+   printf("%s",command_ESP_3);
+   Delay_ms(8000);
+}
+
+void Thing_Speak_Command_Start(void)
+{
+	//"AT+CWDHCP=1,1\r\n";//THINGS SPEAK
+	printf("%s",command_ESP_4);
+	Delay_ms(5000);
+}
+
+void Data_Commands()
+{
+	//"AT+CIPSTART=\"TCP\",\"184.106.153.149\",80\r\n";
+	printf("%s",command_ESP_5);
+	Delay_ms(5000);
+	//"AT+CIPSEND=64\r\n";
+	printf("%s",command_ESP_6);
+    Delay_ms(5000);
+    //"GET /update?api_key=J4467UDKM1YL0EXH&field1=";
+	printf("%s",command_ESP_7);
+
+	printf("%s",data_string);
+	//"\r\n\r\n";
+	printf("%s",command_ESP_9);
+	Delay_ms(1000);
+	//"AT+CIPCLOSE\r\n"
+	printf("%s",command_ESP_10);
+	Delay_ms(5000);
+}
+
+void Init_ESP8266(void)
+{
+	Delay_ms(5000);
+	Basic_Commands();
+	Wifi_Conn_Commands();
+}
+
+int main(void)
+{
+	clock_init();
+	TIM2_init_us();
+//			char data;
+//		    unsigned int Data_Adc;
+//		    //UART INITIALIZATION
+//			UART1_Init();
+//			//ESP8266 INITIALIZTION
+//			Init_ESP8266();
+//			//WIFI ACCOUNT & PASSWORD
+//			Wifi_acc();
+//	        //THINGSPEAK COMMAND
+//			Thing_Speak_Command_Start();
+//			Delay_ms(500);
+//			Data_Adc= 30;
+//			//INTEGER TO ASCII
+//			integer_to_ascii(Data_Adc,data_string);
+//			//DATA COMMAND
+//			Data_Commands();
+//			Delay_ms(500);
+//			Thing_Speak_Command_Start();
+//			Delay_ms(500);
+//			Data_Adc= 60;
+//			//INTEGER TO ASCII
+//			integer_to_ascii(Data_Adc,data_string);
+//			//DATA COMMAND
+//			Data_Commands();
+//			Delay_ms(500);
+//			printf("\n END \n");
+	RCC->AHB2ENR |= (1 << 1);
+	GPIOB->MODER &= ~(0b11 << 14);
+	GPIOB->MODER |= (0b01 << 14);
+
+	while(1){
+		GPIOB->ODR |= (1 << 7);
+		Delay_ms(500);
+		GPIOB->ODR &= ~(1 << 7);
+		Delay_ms(500);
+	}
+
+}

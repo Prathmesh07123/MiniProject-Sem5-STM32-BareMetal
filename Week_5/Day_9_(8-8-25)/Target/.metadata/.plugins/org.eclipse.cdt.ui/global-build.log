@@ -1,0 +1,28 @@
+15:11:46 **** Incremental Build of configuration Debug for project LoRa_SPI ****
+make -j12 all 
+arm-none-eabi-size  LoRa_SPI.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6444	     92	   1900	   8436	   20f4	LoRa_SPI.elf
+Finished building: default.size.stdout
+ 
+15:11:59 **** Incremental Build of configuration Debug for project LoRa_SPI ****
+make -j12 all 
+arm-none-eabi-size  LoRa_SPI.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6444	     92	   1900	   8436	   20f4	LoRa_SPI.elf
+Finished building: default.size.stdout
+ 
+15:14:25 **** Incremental Build of configuration Debug for project LoRa_SPI ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32L4P5xx -DSTM32 -DSTM32L4PLUS -DSTM32L4P5ZGTx -DNUCLEO_L4P5ZG -c -I../Inc -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M4/Nucleo-STM32L4P5ZG/STM32CubeL4-master/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M4/Nucleo-STM32L4P5ZG/STM32CubeL4-master/Drivers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "LoRa_SPI.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\prath\OneDrive\Desktop\MINI PROJECT\Sem 5 Project\Week_5\Day_9_(8-8-25)\Target\LoRa_SPI\STM32L4P5ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LoRa_SPI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LoRa_SPI.elf
+ 
+arm-none-eabi-size  LoRa_SPI.elf 
+arm-none-eabi-objdump -h -S LoRa_SPI.elf  > "LoRa_SPI.list"
+   text	   data	    bss	    dec	    hex	filename
+   6444	     92	   1900	   8436	   20f4	LoRa_SPI.elf
+Finished building: default.size.stdout
+ 
+Finished building: LoRa_SPI.list
+ 

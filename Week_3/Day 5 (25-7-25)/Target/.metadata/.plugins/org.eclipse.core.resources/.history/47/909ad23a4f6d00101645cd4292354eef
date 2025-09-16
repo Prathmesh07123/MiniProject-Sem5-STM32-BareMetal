@@ -1,0 +1,258 @@
+
+
+#include <stdint.h>
+#include <stdio.h>
+#include <stm32f1xx.h>
+#include "printf_debug.h"
+
+void clock_init(void);
+void Systick_delay_ms(int delay);
+void Systick_delay_us(int delay);
+//void Systick_delay_30us();
+//void Systick_delay_40us();
+//void Systick_delay_80us();
+
+
+
+void DHT_GPIO_init_MCU_Start();
+void DHT_GPIO_init_DHT_Start();
+void DHT11_Init();
+uint8_t DHT11_Read_bit();
+uint8_t DHT11_Response_check();
+uint8_t DHT11_Read_Byte();
+void GET_DHT11_Data(uint8_t *humadity, uint8_t *temperature);
+
+
+void clock_init(void){
+
+	RCC->CR |= (1 << 16);
+
+	while(!(RCC->CR & (1 << 17)));
+
+	FLASH->ACR |= (1 << 1);
+
+	RCC->CFGR |= (1 << 16);
+
+	RCC->CFGR &= ~(0xF << 18);
+	RCC->CFGR |= (0x7 << 18);
+
+	RCC->CR |= (1 << 24);
+	while(!(RCC->CR & (1 << 25)));
+
+	RCC->CFGR |= (1 << 1);
+	while(!(RCC->CFGR & (1 << 3)));
+
+}
+
+void Systick_delay_ms(int delay){
+
+	SysTick->LOAD = 71999;
+
+	SysTick->VAL = 0;
+
+	SysTick->CTRL |= (1 << 2);
+	SysTick->CTRL |= (1 << 0);
+
+	for(int i = 0; i < delay; i++){
+		while(!(SysTick->CTRL & (1 << 16)));
+	}
+	SysTick->CTRL = 0;
+}
+
+void Systick_delay_us(int delay){
+
+	SysTick->LOAD = 71;
+
+	SysTick->VAL = 0;
+
+	SysTick->CTRL |= (1 << 2);
+	SysTick->CTRL |= (1 << 0);
+
+	for(int i = 0; i < delay; i++){
+		while(!(SysTick->CTRL & (1 << 16)));
+	}
+	SysTick->CTRL = 0;
+}
+
+void TIM2_Init(void)
+{
+    RCC->APB1ENR |= (1 << 0); // Enable TIM1 clock
+    TIM2->PSC = 71;            // Prescaler to get 1MHz (72MHz / (71 + 1)) = 1 MHz
+    TIM2->ARR = 0xFFFF;        // Auto reload max
+    TIM2->CR1 |= (1 << 0);     // Enable TIM1
+}
+
+void microDelay(uint32_t us)
+{
+    TIM2->CNT = 0;
+    while (TIM2->CNT < us);
+}
+
+//void Systick_delay_30us(){
+//
+//	SysTick->LOAD = 239;
+//
+//	SysTick->VAL = 0;
+//
+//	SysTick->CTRL = 5;
+//
+//	while(!(SysTick->CTRL & (1 << 16)));
+//
+//}
+//
+//void Systick_delay_40us(){
+//
+//	SysTick->LOAD = 319;
+//
+//	SysTick->VAL = 0;
+//
+//	SysTick->CTRL = 5;
+//
+//	while(!(SysTick->CTRL & (1 << 16)));
+//
+//}
+//
+//void Systick_delay_80us(){
+//
+//	SysTick->LOAD = 639;
+//
+//	SysTick->VAL = 0;
+//
+//	SysTick->CTRL = 5;
+//
+//	while(!(SysTick->CTRL & (1 << 16)));
+//
+//}
+
+void DHT_GPIO_init_MCU_Start(){
+
+	RCC->APB2ENR |= (1 << 2);
+
+	GPIOA->CRL &= ~(0xF << 16);
+	GPIOA->CRL |= (0x2 << 16);
+
+}
+
+void DHT_GPIO_init_DHT_Start(){
+
+	RCC->APB2ENR |= (1 << 2);
+
+	GPIOA->CRL &= ~(0xF << 16);
+	GPIOA->CRL |= (0x4 << 16);
+
+}
+
+
+void DHT11_Init(){
+	DHT_GPIO_init_MCU_Start();
+	GPIOA->ODR &= ~(1 << 4);
+	Systick_delay_ms(20);
+	GPIOA->ODR |= (1 << 4);
+//	microDelay(30);
+	DHT_GPIO_init_DHT_Start();
+
+	while(DHT11_Read_bit());
+	while(!(DHT11_Read_bit()));
+	while(DHT11_Read_bit());
+}
+
+uint8_t DHT11_Read_bit(){
+	return (GPIOA->IDR & (1 << 4)) != 0;
+}
+
+uint8_t DHT11_Response_check(){
+
+	microDelay(40);
+	if(!DHT11_Read_bit()){
+		microDelay(80);
+		if(DHT11_Read_bit()){
+			return 1;
+		}
+	}
+	return 0;
+}
+
+uint8_t DHT11_Read_Byte(){
+	uint8_t i, result = 0;
+	printf("Byte is Reading....\n");
+
+	for(i = 0; i < 8; i++){
+
+		while(!DHT11_Read_bit());
+
+		microDelay(30);
+
+		if(DHT11_Read_bit()){
+			result |= (1 << (7 - i));
+			printf("Data 1\n");
+		}
+		printf("2i = %d\n", i);
+		while(DHT11_Read_bit()){
+//			printf("i = %d\n", i);
+//			Systick_delay_ms(1000);
+		}
+		printf("i = %d\n", i);
+
+	}
+	return result;
+}
+
+void GET_DHT11_Data(uint8_t *humadity, uint8_t *temperature){
+	uint8_t RH_integral, RH_decimal, T_integral, T_decimal, checksum;
+
+	DHT11_Init();
+
+//	if(DHT11_Response_check()){
+
+	printf("response from DHT11!\n");
+	printf("response from DHT112!\n");
+
+
+
+	RH_integral = DHT11_Read_Byte();
+	printf("H : %d\n", RH_integral);
+	RH_decimal = DHT11_Read_Byte();
+	T_integral = DHT11_Read_Byte();
+	printf("T : %d\n", T_integral);
+	T_decimal = DHT11_Read_Byte();
+	checksum = DHT11_Read_Byte();
+
+	if (checksum == (RH_integral + RH_decimal + T_integral + T_decimal)){
+		*humadity = RH_integral;
+		*temperature = T_integral;
+		printf("H : %d\n", RH_integral);
+		printf("T : %d\n", T_integral);
+	}
+	else{
+		*humadity = 0;
+		*temperature = 0;
+		printf("Error");
+	}
+
+//	}
+
+}
+
+
+
+int main(void)
+{
+	clock_init();
+	USART2_INIT();
+	TIM2_Init();
+
+	printf("Hello \n");
+
+	uint8_t temperature, humidity;
+
+	while(1){
+	GET_DHT11_Data(&humidity, &temperature);
+
+	printf("Temperature = %d°C\n", temperature);
+	printf("Humidity    = %d%%\n\n", humidity);
+
+
+	Systick_delay_ms(2000);
+	}
+
+}

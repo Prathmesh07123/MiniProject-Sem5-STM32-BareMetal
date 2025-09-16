@@ -1,0 +1,15 @@
+
+
+#include <stdint.h>
+#include <stm32l4xx.h>
+
+void USART1_Init(void){
+
+
+}
+
+
+int main(void)
+{
+
+}

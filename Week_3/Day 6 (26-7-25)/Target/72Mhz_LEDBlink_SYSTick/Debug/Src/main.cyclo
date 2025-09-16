@@ -1,0 +1,6 @@
+../Src/main.c:11:6:clock_init	4
+../Src/main.c:30:6:SysTick_delay_us	3
+../Src/main.c:47:6:TIM1_Init	1
+../Src/main.c:55:6:microDelay	2
+../Src/main.c:61:6:milliDelay	2
+../Src/main.c:68:5:main	1

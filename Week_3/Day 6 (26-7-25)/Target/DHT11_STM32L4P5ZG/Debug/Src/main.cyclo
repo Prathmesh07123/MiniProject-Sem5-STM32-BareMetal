@@ -1,0 +1,13 @@
+../Src/main.c:21:6:clock_init	4
+../Src/main.c:53:6:TIM2_init_us	1
+../Src/main.c:63:6:delay_us	2
+../Src/main.c:68:6:delay_ms	2
+../Src/main.c:74:6:Systick_delay_ms	3
+../Src/main.c:103:6:DHT_GPIO_init_MCU_Start	1
+../Src/main.c:112:6:DHT_GPIO_init_DHT_Start	1
+../Src/main.c:121:6:DHT11_Init	1
+../Src/main.c:130:9:DHT11_Read_bit	1
+../Src/main.c:134:9:DHT11_Response_check	3
+../Src/main.c:146:9:DHT11_Read_Byte	5
+../Src/main.c:171:6:GET_DHT11_Data	3
+../Src/main.c:207:5:main	1

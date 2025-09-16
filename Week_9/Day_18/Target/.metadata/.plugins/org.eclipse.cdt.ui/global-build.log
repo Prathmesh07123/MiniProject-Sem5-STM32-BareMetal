@@ -1,0 +1,7 @@
+17:21:16 **** Incremental Build of configuration Debug for project STM32L4P5_IOTTEST ****
+make -j12 all 
+arm-none-eabi-size  STM32L4P5_IOTTEST.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6316	    392	   1912	   8620	   21ac	STM32L4P5_IOTTEST.elf
+Finished building: default.size.stdout
+ 

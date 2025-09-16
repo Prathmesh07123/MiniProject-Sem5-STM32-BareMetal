@@ -1,0 +1,10 @@
+14:34:43 **** Incremental Build of configuration Debug for project DHT11_STM32F103RB ****
+make -j12 all 
+arm-none-eabi-size  DHT11_STM32F103RB.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6124	    120	   1904	   8148	   1fd4	DHT11_STM32F103RB.elf
+Finished building: default.size.stdout
+ 
+
+14:34:43 Build Finished. 0 errors, 0 warnings. (took 209ms)
+

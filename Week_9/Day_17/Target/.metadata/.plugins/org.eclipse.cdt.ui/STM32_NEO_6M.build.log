@@ -1,0 +1,11 @@
+23:28:54 **** Incremental Build of configuration Debug for project STM32_NEO_6M ****
+make -j12 all 
+arm-none-eabi-gcc -o "STM32_NEO_6M.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\prath\OneDrive\Desktop\MINI PROJECT\Sem 5 Project\Week_9\Day_17\Target\STM32_NEO_6M\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32_NEO_6M.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: STM32_NEO_6M.elf section `.text' will not fit in region `FLASH'
+C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: region `FLASH' overflowed by 1784 bytes
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: STM32_NEO_6M.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+
+23:28:54 Build Failed. 3 errors, 0 warnings. (took 407ms)
+

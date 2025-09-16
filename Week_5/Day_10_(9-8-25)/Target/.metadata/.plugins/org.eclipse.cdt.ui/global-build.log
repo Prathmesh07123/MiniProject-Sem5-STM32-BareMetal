@@ -1,0 +1,127 @@
+09:37:12 **** Incremental Build of configuration Debug for project STM32L4P5_UART_Printf_Debgging ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/Printf_debug_l4p5.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32L4P5xx -DSTM32 -DSTM32L4PLUS -DSTM32L4P5ZGTx -DNUCLEO_L4P5ZG -c -I../Inc -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M4/Nucleo-STM32L4P5ZG/STM32CubeL4-master/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M4/Nucleo-STM32L4P5ZG/STM32CubeL4-master/Drivers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/Printf_debug_l4p5.d" -MT"Src/Printf_debug_l4p5.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/Printf_debug_l4p5.o"
+arm-none-eabi-gcc -o "STM32L4P5_UART_Printf_Debgging.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\prath\OneDrive\Desktop\MINI PROJECT\Sem 5 Project\Week_5\Day_10_(9-8-25)\Target\STM32L4P5_UART_Printf_Debgging\STM32L4P5ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32L4P5_UART_Printf_Debgging.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32L4P5_UART_Printf_Debgging.elf
+ 
+arm-none-eabi-size  STM32L4P5_UART_Printf_Debgging.elf 
+arm-none-eabi-objdump -h -S STM32L4P5_UART_Printf_Debgging.elf  > "STM32L4P5_UART_Printf_Debgging.list"
+   text	   data	    bss	    dec	    hex	filename
+   1232	      0	   1568	   2800	    af0	STM32L4P5_UART_Printf_Debgging.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32L4P5_UART_Printf_Debgging.list
+ 
+09:37:20 **** Incremental Build of configuration Debug for project STM32L4P5_UART_Printf_Debgging ****
+make -j12 all 
+arm-none-eabi-size  STM32L4P5_UART_Printf_Debgging.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1232	      0	   1568	   2800	    af0	STM32L4P5_UART_Printf_Debgging.elf
+Finished building: default.size.stdout
+ 
+09:46:06 **** Incremental Build of configuration Debug for project STM32L4P5_UART_Printf_Debgging ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/Printf_debug_l4p5.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32L4P5xx -DSTM32 -DSTM32L4PLUS -DSTM32L4P5ZGTx -DNUCLEO_L4P5ZG -c -I../Inc -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M4/Nucleo-STM32L4P5ZG/STM32CubeL4-master/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M4/Nucleo-STM32L4P5ZG/STM32CubeL4-master/Drivers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/Printf_debug_l4p5.d" -MT"Src/Printf_debug_l4p5.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/Printf_debug_l4p5.o"
+arm-none-eabi-gcc -o "STM32L4P5_UART_Printf_Debgging.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\prath\OneDrive\Desktop\MINI PROJECT\Sem 5 Project\Week_5\Day_10_(9-8-25)\Target\STM32L4P5_UART_Printf_Debgging\STM32L4P5ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32L4P5_UART_Printf_Debgging.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32L4P5_UART_Printf_Debgging.elf
+ 
+arm-none-eabi-size  STM32L4P5_UART_Printf_Debgging.elf 
+arm-none-eabi-objdump -h -S STM32L4P5_UART_Printf_Debgging.elf  > "STM32L4P5_UART_Printf_Debgging.list"
+   text	   data	    bss	    dec	    hex	filename
+   1276	      0	   1568	   2844	    b1c	STM32L4P5_UART_Printf_Debgging.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32L4P5_UART_Printf_Debgging.list
+ 
+09:49:37 **** Incremental Build of configuration Debug for project STM32L4P5_UART_Printf_Debgging ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32L4P5xx -DSTM32 -DSTM32L4PLUS -DSTM32L4P5ZGTx -DNUCLEO_L4P5ZG -c -I../Inc -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M4/Nucleo-STM32L4P5ZG/STM32CubeL4-master/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M4/Nucleo-STM32L4P5ZG/STM32CubeL4-master/Drivers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "STM32L4P5_UART_Printf_Debgging.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\prath\OneDrive\Desktop\MINI PROJECT\Sem 5 Project\Week_5\Day_10_(9-8-25)\Target\STM32L4P5_UART_Printf_Debgging\STM32L4P5ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32L4P5_UART_Printf_Debgging.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32L4P5_UART_Printf_Debgging.elf
+ 
+arm-none-eabi-size  STM32L4P5_UART_Printf_Debgging.elf 
+arm-none-eabi-objdump -h -S STM32L4P5_UART_Printf_Debgging.elf  > "STM32L4P5_UART_Printf_Debgging.list"
+   text	   data	    bss	    dec	    hex	filename
+   1304	      0	   1568	   2872	    b38	STM32L4P5_UART_Printf_Debgging.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32L4P5_UART_Printf_Debgging.list
+ 
+09:50:11 **** Incremental Build of configuration Debug for project STM32L4P5_UART_Printf_Debgging ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/Printf_debug_l4p5.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32L4P5xx -DSTM32 -DSTM32L4PLUS -DSTM32L4P5ZGTx -DNUCLEO_L4P5ZG -c -I../Inc -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M4/Nucleo-STM32L4P5ZG/STM32CubeL4-master/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M4/Nucleo-STM32L4P5ZG/STM32CubeL4-master/Drivers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/Printf_debug_l4p5.d" -MT"Src/Printf_debug_l4p5.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/Printf_debug_l4p5.o"
+arm-none-eabi-gcc -o "STM32L4P5_UART_Printf_Debgging.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\prath\OneDrive\Desktop\MINI PROJECT\Sem 5 Project\Week_5\Day_10_(9-8-25)\Target\STM32L4P5_UART_Printf_Debgging\STM32L4P5ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32L4P5_UART_Printf_Debgging.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32L4P5_UART_Printf_Debgging.elf
+ 
+arm-none-eabi-size  STM32L4P5_UART_Printf_Debgging.elf 
+arm-none-eabi-objdump -h -S STM32L4P5_UART_Printf_Debgging.elf  > "STM32L4P5_UART_Printf_Debgging.list"
+   text	   data	    bss	    dec	    hex	filename
+   1304	      0	   1568	   2872	    b38	STM32L4P5_UART_Printf_Debgging.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32L4P5_UART_Printf_Debgging.list
+ 
+09:51:56 **** Incremental Build of configuration Debug for project STM32L4P5_UART_Printf_Debgging ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/Printf_debug_l4p5.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32L4P5xx -DSTM32 -DSTM32L4PLUS -DSTM32L4P5ZGTx -DNUCLEO_L4P5ZG -c -I../Inc -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M4/Nucleo-STM32L4P5ZG/STM32CubeL4-master/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M4/Nucleo-STM32L4P5ZG/STM32CubeL4-master/Drivers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/Printf_debug_l4p5.d" -MT"Src/Printf_debug_l4p5.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/Printf_debug_l4p5.o"
+arm-none-eabi-gcc -o "STM32L4P5_UART_Printf_Debgging.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\prath\OneDrive\Desktop\MINI PROJECT\Sem 5 Project\Week_5\Day_10_(9-8-25)\Target\STM32L4P5_UART_Printf_Debgging\STM32L4P5ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32L4P5_UART_Printf_Debgging.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32L4P5_UART_Printf_Debgging.elf
+ 
+arm-none-eabi-size  STM32L4P5_UART_Printf_Debgging.elf 
+arm-none-eabi-objdump -h -S STM32L4P5_UART_Printf_Debgging.elf  > "STM32L4P5_UART_Printf_Debgging.list"
+   text	   data	    bss	    dec	    hex	filename
+   1304	      0	   1568	   2872	    b38	STM32L4P5_UART_Printf_Debgging.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32L4P5_UART_Printf_Debgging.list
+ 
+10:13:13 **** Incremental Build of configuration Debug for project STM32L4P5_UART_Printf_Debgging ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/Printf_debug_l4p5.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32L4P5xx -DSTM32 -DSTM32L4PLUS -DSTM32L4P5ZGTx -DNUCLEO_L4P5ZG -c -I../Inc -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M4/Nucleo-STM32L4P5ZG/STM32CubeL4-master/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M4/Nucleo-STM32L4P5ZG/STM32CubeL4-master/Drivers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/Printf_debug_l4p5.d" -MT"Src/Printf_debug_l4p5.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/Printf_debug_l4p5.o"
+../Src/Printf_debug_l4p5.c: In function 'USART2_INIT':
+../Src/Printf_debug_l4p5.c:39:45: warning: integer overflow in expression of type 'int' results in '-198967296' [-Woverflow]
+   39 |         LPUART1->BRR = (uint32_t)((16000000 * 256)/9600);
+      |                                             ^
+arm-none-eabi-gcc -o "STM32L4P5_UART_Printf_Debgging.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\prath\OneDrive\Desktop\MINI PROJECT\Sem 5 Project\Week_5\Day_10_(9-8-25)\Target\STM32L4P5_UART_Printf_Debgging\STM32L4P5ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32L4P5_UART_Printf_Debgging.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32L4P5_UART_Printf_Debgging.elf
+ 
+arm-none-eabi-size  STM32L4P5_UART_Printf_Debgging.elf 
+arm-none-eabi-objdump -h -S STM32L4P5_UART_Printf_Debgging.elf  > "STM32L4P5_UART_Printf_Debgging.list"
+   text	   data	    bss	    dec	    hex	filename
+   1316	      0	   1568	   2884	    b44	STM32L4P5_UART_Printf_Debgging.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32L4P5_UART_Printf_Debgging.list
+ 
+10:16:48 **** Incremental Build of configuration Debug for project STM32L4P5_UART_Printf_Debgging ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/Printf_debug_l4p5.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32L4P5xx -DSTM32 -DSTM32L4PLUS -DSTM32L4P5ZGTx -DNUCLEO_L4P5ZG -c -I../Inc -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M4/Nucleo-STM32L4P5ZG/STM32CubeL4-master/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M4/Nucleo-STM32L4P5ZG/STM32CubeL4-master/Drivers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/Printf_debug_l4p5.d" -MT"Src/Printf_debug_l4p5.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/Printf_debug_l4p5.o"
+../Src/Printf_debug_l4p5.c: In function 'USART2_INIT':
+../Src/Printf_debug_l4p5.c:39:35: warning: integer overflow in expression of type 'int' results in '1252130816' [-Woverflow]
+   39 |         LPUART1->BRR = ((72000000 * 256) / 115200);
+      |                                   ^
+arm-none-eabi-gcc -o "STM32L4P5_UART_Printf_Debgging.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\prath\OneDrive\Desktop\MINI PROJECT\Sem 5 Project\Week_5\Day_10_(9-8-25)\Target\STM32L4P5_UART_Printf_Debgging\STM32L4P5ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32L4P5_UART_Printf_Debgging.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32L4P5_UART_Printf_Debgging.elf
+ 
+arm-none-eabi-size  STM32L4P5_UART_Printf_Debgging.elf 
+arm-none-eabi-objdump -h -S STM32L4P5_UART_Printf_Debgging.elf  > "STM32L4P5_UART_Printf_Debgging.list"
+   text	   data	    bss	    dec	    hex	filename
+   1316	      0	   1568	   2884	    b44	STM32L4P5_UART_Printf_Debgging.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32L4P5_UART_Printf_Debgging.list
+ 
+10:20:20 **** Incremental Build of configuration Debug for project STM32L4P5_UART_Printf_Debgging ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/Printf_debug_l4p5.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32L4P5xx -DSTM32 -DSTM32L4PLUS -DSTM32L4P5ZGTx -DNUCLEO_L4P5ZG -c -I../Inc -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M4/Nucleo-STM32L4P5ZG/STM32CubeL4-master/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/Users/prath/OneDrive/Desktop/Embedded/Arm Cortex M4/Nucleo-STM32L4P5ZG/STM32CubeL4-master/Drivers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/Printf_debug_l4p5.d" -MT"Src/Printf_debug_l4p5.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/Printf_debug_l4p5.o"
+arm-none-eabi-gcc -o "STM32L4P5_UART_Printf_Debgging.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\prath\OneDrive\Desktop\MINI PROJECT\Sem 5 Project\Week_5\Day_10_(9-8-25)\Target\STM32L4P5_UART_Printf_Debgging\STM32L4P5ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32L4P5_UART_Printf_Debgging.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32L4P5_UART_Printf_Debgging.elf
+ 
+arm-none-eabi-size  STM32L4P5_UART_Printf_Debgging.elf 
+arm-none-eabi-objdump -h -S STM32L4P5_UART_Printf_Debgging.elf  > "STM32L4P5_UART_Printf_Debgging.list"
+   text	   data	    bss	    dec	    hex	filename
+   1316	      0	   1568	   2884	    b44	STM32L4P5_UART_Printf_Debgging.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32L4P5_UART_Printf_Debgging.list
+ 

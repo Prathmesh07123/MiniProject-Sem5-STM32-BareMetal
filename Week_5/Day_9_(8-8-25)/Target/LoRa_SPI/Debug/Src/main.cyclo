@@ -1,0 +1,12 @@
+../Src/main.c:15:6:clock_init	4
+../Src/main.c:47:6:Systick_delay_ms	3
+../Src/main.c:62:6:LoRa_SS_LOW	1
+../Src/main.c:66:6:LoRa_SS_High	1
+../Src/main.c:70:6:LoRa_Reset	1
+../Src/main.c:77:6:LoRa_GPIO_Init	1
+../Src/main.c:120:6:SPI1_Init	1
+../Src/main.c:154:9:SPI_Tranfer	3
+../Src/main.c:162:9:LoRa_ReadReg	1
+../Src/main.c:172:6:LoRa_WriteReg	1
+../Src/main.c:179:5:LoRa_Bringup	2
+../Src/main.c:201:5:main	2

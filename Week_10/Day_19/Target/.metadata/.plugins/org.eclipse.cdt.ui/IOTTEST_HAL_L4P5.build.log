@@ -1,0 +1,10 @@
+18:29:26 **** Incremental Build of configuration Debug for project IOTTEST_HAL_L4P5 ****
+make -j12 all 
+arm-none-eabi-size  IOTTEST_HAL_L4P5.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11144	    404	   1916	  13464	   3498	IOTTEST_HAL_L4P5.elf
+Finished building: default.size.stdout
+ 
+
+18:29:27 Build Finished. 0 errors, 0 warnings. (took 244ms)
+
